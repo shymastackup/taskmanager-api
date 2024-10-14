@@ -1,0 +1,15 @@
+name: project_manager 
+description: A new Dart project.
+version: 1.0.0
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"  # Ensure this matches your Dart SDK version
+  
+dependencies:
+  http: ^1.2.2  #  # or the latest version of the http package
+
+dev_dependencies:
+  lints: ^1.0.0  # Standard lints package for Dart
+  test: ^1.16.0  # Package for running tests
+
+# Additional information about your project can go here.
