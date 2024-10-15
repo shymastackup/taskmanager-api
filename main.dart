@@ -2,10 +2,11 @@ import 'dart:io';
 import 'project_manager.dart';
 import 'task.dart';
 import 'dart:async';
+
 void main() async {
   final projectManager = ProjectManager();
   await projectManager.loadProjectsFromApi();
-    Timer? autoSaveTimer = Timer.periodic(Duration(minutes: 5), (timer) async {
+  Timer? autoSaveTimer = Timer.periodic(Duration(minutes: 5), (timer) async {
     try {
       await projectManager.saveProjectsToApi();
       print("Projects saved automatically at ${DateTime.now()}.");
@@ -17,7 +18,7 @@ void main() async {
   while (true) {
     try {
       print("\nProject Management System:");
-      print("0. Create Project");
+      print("1. Create Project");
       print("2. Add Task to Project");
       print("3. View Tasks of Project");
       print("4. Start a Task");
@@ -31,8 +32,7 @@ void main() async {
       print("12. View Pending Tasks in a Project");
       print("13. Extend Task Deadline");
       print("14. View Project Details");
-      print("15.save");
-      print("00. Exit");
+      print("15. Exit");
       stdout.write("Choose an option: ");
 
       var choice = stdin.readLineSync()!;
@@ -432,16 +432,10 @@ void main() async {
           break;
 
         case '15':
-          await projectManager.saveProjectsToApi();
-          print("Projects saved successfully.");
-          break;
-
-        case '00':
-        
-           print("Exiting...");
-          autoSaveTimer.cancel(); 
+          print("Exiting...");
+          autoSaveTimer.cancel();
           return;
-         
+
         default:
           print("Invalid option. Please choose a valid option.");
       }
