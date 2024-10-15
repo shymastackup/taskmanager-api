@@ -31,7 +31,7 @@ void main() async {
       print("12. View Pending Tasks in a Project");
       print("13. Extend Task Deadline");
       print("14. View Project Details");
-      print("15. Save Project");
+      print("15.save");
       print("00. Exit");
       stdout.write("Choose an option: ");
 

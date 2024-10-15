@@ -4,11 +4,9 @@ import 'task.dart';
 
 class ProjectManager {
   Map<String, Project> projects = {};
-
   Future<void> loadProjectsFromApi() async {
     try {
       final List<dynamic> data = await Api.getProjects();
-     
 
       if (data.isNotEmpty) {
         projects = {
@@ -16,15 +14,11 @@ class ProjectManager {
             Project.fromJson(json).id: Project.fromJson(json)
         };
         print('Projects loaded successfully');
-      } else {
- 
-        
-      }
+      } else {}
     } catch (e) {
       print('Error: Unable to load projects. Reason: $e');
     }
   }
- 
 
   Future<void> saveProjectsToApi() async {
     try {
@@ -89,7 +83,7 @@ class ProjectManager {
     final project = findProjectByName(projectName);
     final task = findTaskInProject(project, taskTitle);
     task.startTask();
-    // saveProjectsToApi();
+    saveProjectsToApi();
     print("Task '$taskTitle' started at ${task.startTime}.");
   }
 
@@ -105,7 +99,6 @@ class ProjectManager {
       String newDescription, DateTime newDeadline) {
     final project = findProjectByName(projectName);
     final task = findTaskInProject(project, taskTitle);
-
     task.title = newTitle;
     task.description = newDescription;
     task.deadline = newDeadline;
@@ -161,7 +154,6 @@ class ProjectManager {
       final project = findProjectByName(projectName);
       final completedTasks =
           project.tasks.where((task) => task.isCompleted).toList();
-
       if (completedTasks.isEmpty) {
         print("No completed tasks in project '$projectName'.");
       } else {
@@ -179,7 +171,6 @@ class ProjectManager {
       final project = findProjectByName(projectName);
       final pendingTasks =
           project.tasks.where((task) => !task.isCompleted).toList();
-
       if (pendingTasks.isEmpty) {
         print("No pending tasks in project '$projectName'.");
       } else {

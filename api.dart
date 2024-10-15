@@ -3,9 +3,8 @@ import 'package:http/http.dart' as http;
 
 class Api {
   static final String apiUrl =
-      'https://crudcrud.com/api/f69e727fcc974858bd89fe5a72e14a8f';
+      'https://crudcrud.com/api/b64bd6cae421493da94eb505ae804f91';
 
-  
   static Future<List<dynamic>> getProjects() async {
     try {
       final response = await http.get(Uri.parse('$apiUrl/projects'));
@@ -28,10 +27,9 @@ class Api {
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode(projectData),
       );
-      
 
       if (response.statusCode == 201) {
-        print('Project success  saved to api.');
+        print("good");
       } else {
         print('Error: Failed to create project. Status code: ${response.statusCode}');
       }
@@ -72,7 +70,6 @@ class Api {
     }
   }
 
-  
   static Future<List<dynamic>> getTasks() async {
     try {
       final response = await http.get(Uri.parse('$apiUrl/tasks'));
@@ -123,7 +120,6 @@ class Api {
       print('Error: Unable to update task. Reason: $e');
     }
   }
-  
 
   static Future<void> deleteTask(String taskId) async {
     try {
@@ -139,3 +135,4 @@ class Api {
     }
   }
 }
+
