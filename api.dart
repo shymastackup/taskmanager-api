@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 
 class Api {
   static final String apiUrl =
-      'https://crudcrud.com/api/b64bd6cae421493da94eb505ae804f91';
+      'https://crudcrud.com/api/f163b051b705405aa1259192f3e586b2';
 
   static Future<List<dynamic>> getProjects() async {
     try {

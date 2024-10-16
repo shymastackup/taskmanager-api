@@ -42,7 +42,7 @@ void main() async {
       }
 
       switch (choice) {
-        case '0':
+        case '1':
           stdout.write("Enter project name: ");
           String name = stdin.readLineSync()!;
           while (name.isEmpty) {
